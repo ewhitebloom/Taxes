@@ -1,20 +1,20 @@
 require 'rspec'
+
 require_relative '../lib/taxes.rb'
-require_relative '../lib/taxes.csv'
 
 describe Taxes do
   let(:person) { Taxes.new(name, csv_file)}
 
   it 'calculates tax absolute value for one person' do
    person.taxes = person.tax_paid - person.annual_income * person.tax_rate
-  end
+ end
 
-  it 'returns a refund' do
+ it 'returns a refund' do
    expect(person.tax_calcs.to be > 0 )
-  end
+ end
 
-  it 'returns taxes owed' do
+ it 'returns taxes owed' do
    expect(person.tax_calcs.to be < 0 )
-  end
+ end
 
 end
