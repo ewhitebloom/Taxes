@@ -1,10 +1,10 @@
 require 'rspec'
-require_relative 'taxes.rb'
+require_relative '../lib/taxes.rb'
 
 describe Taxes do
   let(:person) { Taxes.new(name, csv_file)}
 
-  it 'calculates taxes owed or amount of refund'
+  it 'calculates taxes owed or amount of refund' do
    person.taxes = person.tax_paid - person.annual_income * person.tax_rate
   end
 
