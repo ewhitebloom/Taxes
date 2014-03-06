@@ -26,10 +26,8 @@ def tax_data
 end
 
 def tax_calcs(name, tax_data)
-  tax_info = tax_data.find |person| do
-    person[:first] + person[:last] == name
-    binding.pry
-  end
+  tax_info = tax_data.find { |person| person[:first] + " " + person[:last] == name }
+  tax_info[:tax_paid] - (tax_info[:tax_rate] * tax_info[:annual_income])
 end
 
 end
