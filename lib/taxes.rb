@@ -39,7 +39,6 @@ class Taxes
     else
       "#{@person} owes $#{formatted} in taxes"
     end
-
   end
 
 end
