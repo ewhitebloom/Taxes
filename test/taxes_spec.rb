@@ -12,9 +12,6 @@ describe Taxes do
  end
 
  it 'returns a refund or taxes owed' do
-  if tax_calcs > 0.0
-    expect(person.feedback(tax_calcs) == "Jane Doe will receive a refund of $#{person.format_currency(tax_calcs.abs)}")
-  elsif tax_calcs < 0.0
     expect(person.feedback(tax_calcs) == "Jane Doe owes $#{person.format_currency(tax_calcs.abs)} in taxes" )
   end
 end
