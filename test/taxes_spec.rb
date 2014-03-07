@@ -12,9 +12,8 @@ describe Taxes do
  end
 
  it 'returns a refund or taxes owed' do
-
-    expect(person.feedback(tax_calcs) == "Jane Doe owes $#{person.format_currency(tax_calcs.abs)} in taxes" )
-  end
+  expect(person.feedback == "Jane Doe owes $#{person.format_currency} in taxes" )
 end
 
 end
+

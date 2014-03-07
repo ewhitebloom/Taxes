@@ -28,16 +28,16 @@ class Taxes
 
 end
 
-people = []
-CSV.foreach( 'taxes.csv', headers: true) do |row|
-  people << Taxes.new(row["first_name"], row["last_name"], row["annual_income"], row["tax_paid"], row["tax_rate"])
-end
+# people = []
+# CSV.foreach( 'taxes.csv', headers: true) do |row|
+#   people << Taxes.new(row["first_name"], row["last_name"], row["annual_income"], row["tax_paid"], row["tax_rate"])
+# end
 
-def brains(people_objects)
-  stuff = []
-  people_objects.each { |person| stuff << person.feedback }
-  stuff
-end
+# def brains(people_objects_array)
+#   stuff = []
+#   people_objects.each { |person| stuff << person.feedback }
+#   stuff
+# end
 
-feed = brains(people)
-feed.each{ |person_feedback| puts person_feedback }
+# feed = brains(people)
+# feed.each{ |person_feedback| puts person_feedback }
