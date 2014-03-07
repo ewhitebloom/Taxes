@@ -43,12 +43,15 @@ class Taxes
 
 end
 
+def brains(name)
+  person = Taxes.new(name, 'taxes.csv')
+  data = person.tax_data
+  calcs = person.tax_calcs(name, data)
+  person.feedback(calcs)
+end
 
-# jane = Taxes.new('Jane Doe', 'taxes.csv')
-# data = jane.tax_data
-
-# calcs = jane.tax_calcs('Jane Doe', data)
-
-# puts jane.feedback(calcs)
-
-
+puts brains('Jane Doe')
+puts brains('Johnny Smith')
+puts brains('Liz Lemon')
+puts brains('Orson Orsillio')
+puts brains('Eric Schmidt')
