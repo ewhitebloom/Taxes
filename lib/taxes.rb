@@ -14,16 +14,15 @@ class Taxes
     @tax_paid.to_f - ((@tax_rate.to_f * 0.01) * @annual_income.to_f)
   end
 
-  def format_currency(currency)
-    sprintf('%.2f', currency)
+  def format_currency
+    sprintf('%.2f', tax_calcs.abs)
   end
 
-  def feedback(tax_calcs)
-    formatted = format_currency(tax_calcs.abs)
+  def feedback
     if tax_calcs > 0
-      "#{@first+ " "+ @last} will receive a refund of $#{formatted}"
+      "#{@first+ " "+ @last} will receive a refund of $#{format_currency}"
     else
-      "#{@first+ " "+ @last} owes $#{formatted} in taxes"
+      "#{@first+ " "+ @last} owes $#{format_currency} in taxes"
     end
   end
 
@@ -36,7 +35,7 @@ end
 
 def brains(people_objects)
   stuff = []
-  people_objects.each { |person| stuff << person.feedback(person.tax_calcs) }
+  people_objects.each { |person| stuff << person.feedback }
   stuff
 end
 
